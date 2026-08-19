@@ -40,8 +40,9 @@ const App = () => (
             <Sonner />
             <HashRouter>
               <Routes>
-                <Route path="/login" element={<LoginPage />} />
+                <Route index element={<Navigate to="/login" replace />} />
                 <Route path="/" element={<Navigate to="/login" replace />} />
+                <Route path="/login" element={<LoginPage />} />
                 <Route element={<RoleDashboardLayout />}>
                   <Route path="/super-admin-dashboard" element={<SuperAdminDashboard />} />
                   <Route path="/district-admin-dashboard" element={<DistrictAdminDashboard />} />
@@ -62,7 +63,7 @@ const App = () => (
                   <Route path="/blockchain-audit" element={<BlockchainAuditDashboard />} />
                   <Route path="/blockchain-explorer" element={<BlockchainExplorerPage />} />
                 </Route>
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
               </Routes>
             </HashRouter>
           </TooltipProvider>
