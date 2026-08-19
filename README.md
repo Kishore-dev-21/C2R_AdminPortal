@@ -6,10 +6,6 @@
 
 <br />
 
-![Click2Ration Platform Overview](./docs/banner.png)
-
-<br />
-
 ![Click2Ration Fraud Chain Intelligence Architecture](./docs/fraud_chain_architecture.jpg)
 
 <br />
@@ -126,7 +122,6 @@ admin-click2ration/
 |   |-- package.json
 |   `-- tsconfig.json
 |-- docs/                          # Documentation assets and architecture diagrams
-|   |-- banner.png                 # Platform UI dashboard banner
 |   `-- fraud_chain_architecture.jpg # Flagship Fraud Chain Intelligence architecture
 |-- public/                        # Static assets & SPA redirects (_redirects)
 |-- src/
