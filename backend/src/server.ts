@@ -3,7 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import blockchainRoutes from "./routes/blockchain";
-import { BlockchainLedgerService } from "./services/BlockchainLedgerService";
+import fraudRoutes from "./routes/fraudIntelligence";
+import { BlockchainLedgerService } from "./services/blockchainLedgerService";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(express.json({ limit: "1mb" }));
 
 // ── Routes ────────────────────────────────────────────────────────────────
 app.use("/blockchain", blockchainRoutes);
+app.use("/fraud", fraudRoutes);
 
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", service: "click2ration-blockchain", timestamp: new Date().toISOString() });

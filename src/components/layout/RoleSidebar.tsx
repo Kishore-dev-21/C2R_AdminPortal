@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, MapPin, Warehouse, Store, ShoppingCart, Package,
-  AlertTriangle, BarChart3, Users, FileText, Settings, LogOut, Truck, ClipboardList, Shield, Blocks
+  AlertTriangle, BarChart3, Users, FileText, Settings, LogOut, Truck, ClipboardList, Shield, Blocks, Workflow
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, UserRole } from "@/contexts/AuthContext";
@@ -21,6 +21,7 @@ const superAdminNav: NavItem[] = [
   { title: "nav.orders", url: "/orders", icon: ShoppingCart },
   { title: "nav.inventory", url: "/inventory", icon: Package },
   { title: "nav.fraud_detection", url: "/fraud", icon: AlertTriangle },
+  { title: "nav.fraud_chains", url: "/fraud-chains", icon: Workflow },
   { title: "nav.blockchain_audit", url: "/blockchain-audit", icon: Shield },
   { title: "nav.blockchain_explorer", url: "/blockchain-explorer", icon: Blocks },
   { title: "nav.analytics", url: "/analytics", icon: BarChart3 },
@@ -35,6 +36,7 @@ const districtAdminNav: NavItem[] = [
   { title: "nav.orders", url: "/orders", icon: ShoppingCart },
   { title: "nav.inventory", url: "/inventory", icon: Package },
   { title: "nav.fraud_detection", url: "/fraud", icon: AlertTriangle },
+  { title: "nav.fraud_chains", url: "/fraud-chains", icon: Workflow },
   { title: "nav.blockchain_audit", url: "/blockchain-audit", icon: Shield },
   { title: "nav.blockchain_explorer", url: "/blockchain-explorer", icon: Blocks },
   { title: "nav.settings", url: "/settings", icon: Settings },

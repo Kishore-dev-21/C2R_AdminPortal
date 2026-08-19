@@ -4,7 +4,7 @@
  */
 
 import { pool } from "./pool";
-import { BlockchainLedgerService } from "../services/BlockchainLedgerService";
+import { BlockchainLedgerService } from "../services/blockchainLedgerService";
 
 async function seed() {
   const service = new BlockchainLedgerService();

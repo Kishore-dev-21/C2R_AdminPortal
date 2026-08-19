@@ -19,6 +19,7 @@ import ShopsPage from "@/pages/ShopsPage";
 import OrdersPage from "@/pages/OrdersPage";
 import InventoryPage from "@/pages/InventoryPage";
 import FraudPage from "@/pages/FraudPage";
+import FraudChainPage from "@/pages/FraudChainPage";
 import AnalyticsPage from "@/pages/AnalyticsPage";
 import AdminPage from "@/pages/AdminPage";
 import LogsPage from "@/pages/LogsPage";
@@ -53,6 +54,7 @@ const App = () => (
                   <Route path="/orders" element={<OrdersPage />} />
                   <Route path="/inventory" element={<InventoryPage />} />
                   <Route path="/fraud" element={<FraudPage />} />
+                  <Route path="/fraud-chains" element={<FraudChainPage />} />
                   <Route path="/analytics" element={<AnalyticsPage />} />
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/logs" element={<LogsPage />} />

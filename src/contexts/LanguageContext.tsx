@@ -23,6 +23,7 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.orders": { en: "Orders", ta: "ஆர்டர்கள்" },
   "nav.inventory": { en: "Inventory", ta: "சரக்கு" },
   "nav.fraud_detection": { en: "Fraud Detection", ta: "மோசடி கண்டறிதல்" },
+  "nav.fraud_chains": { en: "Fraud Chains", ta: "மோசடி சங்கிலி நுண்ணறிவு" },
   "nav.analytics": { en: "Analytics", ta: "பகுப்பாய்வு" },
   "nav.admin_management": { en: "Admin Management", ta: "நிர்வாக மேலாண்மை" },
   "nav.activity_logs": { en: "Activity Logs", ta: "செயல்பாட்டு பதிவுகள்" },

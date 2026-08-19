@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { BlockchainLedgerService, computeFraudRiskScore } from "../services/BlockchainLedgerService";
+import { BlockchainLedgerService } from "../services/blockchainLedgerService";
+import { computeFraudRiskScore } from "../services/fraudRiskService";
 import { FraudLogPayload, StockTransferPayload, TransactionType } from "../types";
 
 const svc = new BlockchainLedgerService();
@@ -50,7 +51,13 @@ export async function postFraudLog(req: Request, res: Response) {
     }
     const payload: FraudLogPayload = { caseId, fraudType, district, shop, severity, detectedBy, evidence };
     const block = await svc.addFraudLog(payload);
-    const riskScore = computeFraudRiskScore(payload);
+    const riskScore = computeFraudRiskScore({
+      blockchainQty: 0,
+      reportedQty: 0,
+      fraudType: payload.fraudType,
+      shop: payload.shop,
+      district: payload.district,
+    });
     return res.status(201).json({ success: true, block, riskScore });
   } catch (err: any) {
     console.error("POST /blockchain/fraud-log:", err);
@@ -156,7 +163,14 @@ export async function getFraudScores(req: Request, res: Response) {
     const blocks = await svc.getHistory(100, 0, "FRAUD_LOG");
     const scores = blocks.map(b => {
       const p = b.payload as FraudLogPayload;
-      return { ...computeFraudRiskScore(p), caseId: p.caseId, transactionId: b.transactionId, blockNumber: b.blockNumber, createdAt: b.createdAt };
+      const riskScore = computeFraudRiskScore({
+        blockchainQty: 0,
+        reportedQty: 0,
+        fraudType: p.fraudType,
+        shop: p.shop,
+        district: p.district,
+      });
+      return { ...riskScore, caseId: p.caseId, transactionId: b.transactionId, blockNumber: b.blockNumber, createdAt: b.createdAt };
     });
     return res.json(scores);
   } catch (err: any) {
