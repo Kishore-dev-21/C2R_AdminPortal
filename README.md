@@ -1,12 +1,16 @@
 <div align="center">
 
-# Click2Ration (C2R) - National PDS Admin Control Center
+# Click2Ration (C2R) - National PDS Digital Platform
 
-**Next-Generation Public Distribution System Management, AI-Driven Fraud Chain Intelligence, and Permissioned Blockchain Audit Infrastructure**
+**A Secure, Scalable, Transparent Digital Platform for India's Public Distribution System**
 
 <br />
 
-![Click2Ration Fraud Chain Intelligence Architecture](./docs/fraud_chain_architecture.jpg)
+![Click2Ration System Architecture](./docs/system_architecture.jpg)
+
+<br />
+
+![Click2Ration Fraud Chain Intelligence Engine](./docs/fraud_chain_engine.jpg)
 
 <br />
 
@@ -16,7 +20,29 @@
 
 ## Executive Summary
 
-Click2Ration (C2R) is an enterprise-grade administrative, intelligence, and monitoring platform built to modernize the Public Distribution System (PDS). By integrating real-time logistics telemetry, role-based administrative workflows, multi-tiered AI anomaly detection, and a cryptographically verifiable permissioned blockchain ledger, Click2Ration eliminates leakages, prevents stock diversions, and ensures essential commodities reach designated beneficiaries with complete transparency.
+Click2Ration (C2R) is an enterprise-grade smart digital platform built to modernize India's Public Distribution System (PDS). By uniting a citizen-friendly **Public User Portal**, an agile **Delivery Agent Portal**, and a centralized **Admin PDS Control Center** powered by microservices, cryptographic ledger verification, and AI-driven **Fraud Chain Intelligence**, Click2Ration eliminates leakages, prevents stock diversions, and ensures essential commodities reach designated beneficiaries with complete transparency.
+
+---
+
+## Three-Portal Architecture
+
+### 1. Public User Portal (Beneficiary Website & Mobile App)
+- **Multi-Channel Access:** Web, Android, and iOS application interfaces with English and Tamil language support.
+- **Secure Authentication:** Ration card and OTP verification.
+- **Ration Dashboard:** Commodity entitlement validation, family member management, and quota limits.
+- **Flexible Fulfillment:** Doorstep delivery scheduling or Fair Price Shop (FPS) counter pickup selection.
+- **Digital Proof:** E-receipts, purchase logs, order tracking, and live notifications.
+
+### 2. Delivery Agent Portal (Mobile Application)
+- **Assigned Deliveries:** Real-time route optimization and consignment tracking.
+- **Customer Verification:** In-person OTP and biometric identity verification (MT100 scanner integration).
+- **Proof of Delivery:** Digital signature capture and photo confirmation.
+- **Telemetry & Status:** Real-time dispatch, route checkpoint logging, and delay reporting.
+
+### 3. Admin Portal (National & District PDS Control Center)
+- **Super Administrator:** National-level monitoring, statewide fraud chain dossiers, blockchain integrity control, district allocation controls, and system configuration.
+- **District Administrator:** Scoped strictly to assigned district jurisdictions for fraud chain analysis and inventory reconciliation.
+- **Fair Price Shop (FPS) Administrator:** Local stock receipt acknowledgement, ration distribution logs, and localized quota balance tracking.
 
 ---
 
@@ -37,18 +63,19 @@ Click2Ration introduces a PDS-specific **Fraud Chain Intelligence** layer that m
 |                                                                                                    |
 |                                                |                                                   |
 |                                                v                                                   |
-|  [8-STAGE ENGINE PIPELINE]                                                                         |
-|   1. Event Collection    -> 2. Entity Resolution     -> 3. Relationship Extraction                 |
-|   4. Temporal Ordering   -> 5. Anomaly Evidence      -> 6. Chain Construction                      |
-|   7. Risk Scoring        -> 8. Hypothesis Generation                                               |
+|  [9-STAGE ENGINE PIPELINE]                                                                         |
+|   1. Entity Relationship Extraction  -> 2. Chronological Timeline Sequencing                       |
+|   3. Explainable Evidence Weighting  -> 4. AI Fraud Hypothesis Generation                          |
+|   5. Counterfactual Risk Simulation  -> 6. Evidence-Driven Prioritized Recommendations             |
+|   7. Pre-Delivery Hold Gatekeeper    -> 8. Controlled Resolution & Dynamic Trust Recovery          |
+|   9. Immutable Administrative Audit Logging                                                        |
 |                                                                                                    |
 |                                                |                                                   |
 |                                                v                                                   |
-|  [EXPLAINABLE RISK & ACTIONABLE OUTCOMES]                                                          |
-|  * Fraud Chain Dashboard & Sequence Flow      * What Drives This Risk? (Counterfactual Tool)       |
-|  * Chronological Event Timeline               * Evidence-Driven Investigation Recommendations      |
-|  * Mathematical Feature Contributions         * Pre-Delivery Gatekeeper (Automated Dispatch Hold)  |
-|  * Controlled Chain Resolution                * Immutable Audit Logging                            |
+|  [BUSINESS IMPACT & ACTIONABLE OUTCOMES]                                                           |
+|  * Stop Fraud Before It Happens               * Faster & Smarter Field Investigations              |
+|  * Higher Accountability & Transparency       * Adaptive Dynamic Trust Management                  |
+|  * Data-Driven Governance Policy Insights     * Secure, Scalable, and Future-Ready Architecture     |
 +----------------------------------------------------------------------------------------------------+
 ```
 
@@ -78,12 +105,6 @@ Click2Ration introduces a PDS-specific **Fraud Chain Intelligence** layer that m
 - **Privacy-Preserving Architecture:** Sensitive citizen identifiers (Aadhaar, mobile numbers) are never stored on the ledger.
 - **Exportable Audit Certifications:** Generates cryptographically validated PDF audit reports formatted for regulatory oversight.
 
-### 5. Multi-Tiered Role-Based Access Control (RBAC)
-- **Super Administrator:** National-level monitoring, statewide fraud chain dossiers, blockchain integrity control, district allocation controls, and system configuration.
-- **District Administrator:** Scoped strictly to assigned district jurisdictions for fraud chain analysis and inventory reconciliation.
-- **Fair Price Shop (FPS) Administrator:** Local stock receipt acknowledgement, biometric/OTP ration distribution, and localized quota balance tracking.
-- **Delivery Personnel:** Real-time consignment status, dispatch logging, route progress, and proof-of-delivery timestamps.
-
 ---
 
 ## Technology Stack
@@ -99,10 +120,11 @@ Click2Ration introduces a PDS-specific **Fraud Chain Intelligence** layer that m
 - **State & Query Management:** TanStack React Query
 
 ### Backend Infrastructure
+- **Architecture:** Microservices Architecture (User Service, Order Service, Inventory Service, Payment Service, Notification Service, Analytics Service)
 - **Runtime Environment:** Node.js 18+ / TypeScript
-- **API Framework:** Express.js
+- **API Framework:** Express.js with API Gateway (Authentication, Rate Limiting, Request Routing)
 - **Database:** PostgreSQL (with indexed JSONB block storage)
-- **Security & Cryptography:** Helmet, SHA-256 hash digests, HMAC digital signatures
+- **Security & Cryptography:** End-to-End Encryption, JWT Authentication, RBAC, Biometric/OTP Verification, Helmet, SHA-256 digests
 - **Database Client:** pg (node-postgres with connection pooling)
 
 ---
@@ -121,8 +143,9 @@ admin-click2ration/
 |   |   `-- server.ts              # Express initialization
 |   |-- package.json
 |   `-- tsconfig.json
-|-- docs/                          # Documentation assets and architecture diagrams
-|   `-- fraud_chain_architecture.jpg # Flagship Fraud Chain Intelligence architecture
+|-- docs/                          # Architecture diagrams & documentation assets
+|   |-- system_architecture.jpg    # End-to-End System Architecture
+|   `-- fraud_chain_engine.jpg     # Fraud Chain Intelligence Engine Architecture
 |-- public/                        # Static assets & SPA redirects (_redirects)
 |-- src/
 |   |-- components/
